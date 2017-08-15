@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-
-  get 'likes/destroy'
-
-  get 'secrets/index'
-
   root 'users#new'
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'

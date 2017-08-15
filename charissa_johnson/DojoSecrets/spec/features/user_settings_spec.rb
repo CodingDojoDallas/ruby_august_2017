@@ -17,14 +17,14 @@ feature 'User features ' do
     	expect(find_field('Email').value).to eq(@user.email)
     end
     scenario "incorrectly updates information" do
-    	fill_in 'Name', with: 'Diana Prince'
+    	fill_in 'Name', with: 'Another Name'
     	fill_in 'Email', with: 'wrong email format'
     	click_button 'Update'
     	expect(current_path).to eq("/users/#{@user.id}/edit")
     	expect(page).to have_text("Email is invalid")
     end
     scenario "correctly updates information" do
-    	fill_in 'Name', with: 'Diana Prince'
+    	fill_in 'Name', with: 'Another Name'
     	fill_in 'Email', with: 'correct@email.com'
     	click_button 'Update'
     	expect(page).to have_text('Another Name')

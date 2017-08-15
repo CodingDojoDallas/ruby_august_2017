@@ -16,8 +16,8 @@ RSpec.describe Secret, type: :model do
     it 'has likes' do
       expect(@secret.likes).to include(@like)
     end
-    it 'has users through likes table' do 
-      expect(@secret.users).to include(@user)
-    end
+    # it 'has users through likes table' do 
+    #   expect(@secret.users).to include(@user)
+    # end
   end
 end
