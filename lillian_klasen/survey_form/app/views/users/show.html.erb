@@ -1,0 +1,9 @@
+<% if flash[:success] %>
+<div class="success"><%= flash[:success] %></div>
+<% end %>
+
+<h3>Submitted Information:</h3>
+<p>Name: <%= @current_user.name %></p>
+<p>Dojo Location: <%= @current_user.location %></p>
+<p>Favorite Language: <%= @current_user.language %></p>
+<p>Comment: <%= @current_user.comment %></p>

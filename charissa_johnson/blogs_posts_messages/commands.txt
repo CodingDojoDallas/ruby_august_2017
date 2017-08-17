@@ -1,0 +1,8 @@
+Comment.create(commentable_type: "This is a comment", commentable: User.second)
+Comment.create(content:"Blah, blah, blah", commentable:Blog.last)
+Comment.create(content:"This is for a post", commentable:Post.first)
+User.second.comments
+Blog.last.comments
+Post.first.comments
+Comment.create(content:"Comment for a message", commentable:Message.third)
+Message.third.comments

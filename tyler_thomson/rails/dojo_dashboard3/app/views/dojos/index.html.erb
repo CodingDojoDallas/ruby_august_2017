@@ -1,0 +1,30 @@
+<h1>Listing 3 Dojos</h1>
+<table>
+  <tr>
+    <th>Coding Dojo Branch</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Actions</th>
+  </tr>
+  <% @dojos.each do |d| %>
+    <tr>
+      <td><%= d['name'] %></td>
+      <td><%= d['street'] %></td>
+      <td><%= d['city'] %></td>
+      <td><%= d['state'] %></td>
+      <td><a href="/dojos/show/<%= d.id %>">Show</a> |
+        <a href="/dojos/edit/<%= d.id %>">Edit</a> |
+        <form action="/dojos/destroy/<%= d.id %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" value="submit" />
+        </form>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div>
+  <a href="/dojos/new">Create new dojo</a>
+</div>

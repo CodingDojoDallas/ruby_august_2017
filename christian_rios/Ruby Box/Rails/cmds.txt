@@ -1,0 +1,46 @@
+// create project
+rails new user_login_project
+
+// create model
+rails g model User first_name:string last_name:string email:string password:string age:integer
+rake db:migrate
+
+// creating some users
+User.create(first_name: "Angela", last_name: "Yubi", email: "angela@yubi.com", age: 24)
+User.create(first_name: "Abigail", last_name: "Becker", email: "abigail@becker.com", age: 25)
+User.create(first_name: "Jenna", last_name: "Shea", email: "jenna@shea.com", age: 30)
+User.create(first_name: "Cristina", last_name: "Moreno", email: "cristina@moreno.com", age: 24)
+
+// adding validations
+class User < ActiveRecord::Base
+  validates :first_name, :last_name, :email, :age, presence: true
+  validates :age, numericality: { greater_than_or_equal_to: 10, less_than: 150 }
+  validates :first_name, :last_name, length: { minimum: 2 }
+end
+
+// checking validations and error messages
+user1 = User.create(first_name: "C", last_name: "M", email: "anga@yubi.com", age: 3)
+user1.errors
+user1.errors.full_messages
+
+// finding all users
+User.all
+
+// finding the first user
+User.first
+
+// finding the last user
+User.last
+
+// order by name DESC
+User.order(first_name: :desc)
+
+
+// finding user with id of 4
+cm = User.find(4)
+
+// updating user last name
+cm.update(last_name: "Moreno")
+
+// deleting user with id of 3
+User.destroy(3)

@@ -1,0 +1,24 @@
+<h1>Dojos#index</h1>
+<form action="/dojos" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+	<label>Your Name: </label>
+	<input type="text" name="name"/>
+	<label>Dojo Location: </label>
+	<select name="dojo">
+		<option>Mountain View</option>
+		<option>Seattle</option>
+		<option>Boston</option>
+		<option>Dallas</option>
+		<option>DC</option>
+	</select>
+	<select name="language">
+		<option>JavaScript</option>
+		<option>Ruby</option>
+		<option>Python</option>
+		<option>Java</option>
+		<option>Swift</option>
+	</select>
+	<label>Comment:</label>
+	<textarea name="comment"></textarea>
+	<input type="submit" value="Submit"/>
+</form>

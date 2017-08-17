@@ -1,0 +1,27 @@
+<form action='/create' method='post'>
+    <input type='hidden' name='authenticity_token' value='<% form_authenticity_token %>'>
+
+    Your Name: <input type='text' name='user[name]'>
+    <br>
+    <br>
+    Dojo Location:
+    <select name='user[location]'>
+        <option value="Dallas">Dallas</option>
+		<option value="San Jose">San Jose</option>
+		<option value="Seattle">Seattle</option>
+	</select>
+    <br>
+    <br>
+    Favorite Language:
+    <select name='user[language]'>
+        <option value="Python">Python</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Ruby">Ruby</option>
+    </select>
+    <br>
+    <br>
+      Comment: <textarea name='user[comment]'></textarea>
+      <br>
+      <br>
+      <input type='submit' value='Submit'>
+  </form>

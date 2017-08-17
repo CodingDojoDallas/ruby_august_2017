@@ -1,0 +1,17 @@
+<h1>Editing <%= @student.first_name %> <%= @student.last_name %></h1>
+
+<form action="/students" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+	<label>First Name:</label>
+	<input type="text" name="student_info[first_name]"/>
+	<label>Last Name:</label>
+	<input type="text" name="student_info[last_name]"/>
+	<label>Email:</label>
+	<input type="text" name="student_info[email]"/>
+	<label>Dojo:</label>
+	<select name="student_info[dojo]">
+		<option value="<%= @dojo.id %>"><%= @dojo.branch %></option>
+	</select>
+	<input type="submit" value="Create"/>
+</form>
+<a href="/dojos">Home</a>
