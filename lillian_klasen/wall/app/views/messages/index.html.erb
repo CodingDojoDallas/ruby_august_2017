@@ -1,0 +1,46 @@
+<h1>CodingDojo Wall</h1>
+<h2>Welcome, <%= @user.first_name %></h2>
+
+<% if flash[:errors]%>
+<div class="errors"><%= flash[:errors] %></div>
+<% end %>
+
+    <form action='/users/:id/messages' method='post'>
+    <input type='hidden' name='authenticity_token' value='<% form_authenticity_token %>'>
+        Post a message
+        <br>
+        <br>
+        <textarea name='message[content]'></textarea>
+        <br>
+        <br>
+        <input type='submit' value='Post a message'>
+        <br>
+        <br>
+    </form>
+
+<% if @messages %>
+    <% @messages.reverse.each do |message| %>
+    <p><%= message.user %> - <%= Time.new.strftime('%B %d, %Y') %></p>
+    <p><%= message.content %></p>
+
+        <form action='/messages/:message_id/posts' method='post'>
+            <input type='hidden' name='authenticity_token' value='<% form_authenticity_token %>'>
+            <textarea name='post[content]'></textarea>
+            <br>
+            <br>
+            <input type='submit' value='Post a comment'>
+        </form>
+
+
+        <h4>Comments</h4>
+            <% @posts.each do |post| %>
+            <% if post.message == message.id %>
+            <p><%= post.user %> - <%= Time.new.strftime('%B %d, %Y') %></p>
+            <p><%= post.content %></p>
+                <hr>
+                <% end %>
+            <% end %>
+
+<hr>
+    <% end %>
+    <% end %>
