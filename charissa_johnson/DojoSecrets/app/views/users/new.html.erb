@@ -1,0 +1,13 @@
+<a href="/sessions/new">Log In</a>
+<form action="/users" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+	<label>Email: </label>
+	<input type="email" id="Email" name="user[email]"/>
+	<label>Name:</label>
+	<input type="text" id="Name" name="user[name]"/>
+	<label>Password:</label>
+	<input type="password" id="Password" name="user[password]"/>
+	<label>Password Confirmation:</label>
+	<input type="password" id="password_confirmation" name="user[password_confirmation]"/>
+	<input type="submit" name="Join" value="Join"/>
+</form>
